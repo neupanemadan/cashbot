@@ -1,11 +1,12 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify, render_template
 import requests
+from config import setting
 
 app = Flask(__name__)
-API_KEY = '6V6HGEJIKYG0NW4H.'
+API_KEY = setting.API_KEY
 
 
-@app.route('/', methods=['POST'])
+@app.route('/api', methods=['POST'])
 def home():
     try:
         data = request.get_json()
@@ -21,10 +22,24 @@ def home():
         result = rate * amount
         time = response['Realtime Currency Exchange Rate']['6. Last Refreshed']
         
-        return f"{amount} {from_c} is equal to {result} {to_c} as per {time}"
+        response = {
+            'fulfillmentText':"{} {} is equal to {} {} as per {} .".format(amount, from_c, result, to_c, time)
+        }
+        
+        return jsonify(response)
+        
     except Exception as e:
-        return 'Sorry, Could not convert'
-
+        response = {
+            'fulfillmentText':"Sorry , Could not convert!!"
+        }
+        
+        return jsonify(response)
+    
+@app.route("/")
+def index():
+    print(API_KEY)
+    return render_template('index.html')
 
 if __name__ == "__main__":
 	app.run(debug=True)
+        
