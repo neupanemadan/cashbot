@@ -5,8 +5,8 @@ CashBot is a Flask-based web application integrated with Google Dialogflow, desi
 ## Features
 
 - **Conversational Interface:** CashBot utilizes Google Dialogflow to understand natural language inputs and provide meaningful responses to user queries.
-- **Currency Conversion: ** Users can easily convert between different currencies by specifying the source amount and the desired target currency.
-- **Real-Time Exchange Rates: ** CashBot fetches the latest exchange rates from a reliable API to ensure accurate currency conversions.
+- **Currency Conversion:** Users can easily convert between different currencies by specifying the source amount and the desired target currency.
+- **Real-Time Exchange Rates:** CashBot fetches the latest exchange rates from a reliable API to ensure accurate currency conversions.
 - **Multi-Currency Support:** CashBot supports a wide range of currencies, allowing users to convert between various global currencies.
 
 ## Installation
